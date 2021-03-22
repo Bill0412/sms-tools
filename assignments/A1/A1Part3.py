@@ -10,7 +10,9 @@ elements in x. The output of this function should be a numpy array.
 If you run your code with x = np.arange(10) and M = 2, the function should return the following output: 
 array([0, 2, 4, 6, 8]).
 """
-def hopSamples(x,M):
+
+
+def hopSamples(x, M):
     """
     Inputs:
         x: input numpy array
@@ -18,7 +20,9 @@ def hopSamples(x,M):
     Output:
         A numpy array containing every Mth element in x, starting from the first element in x.
     """
-    ## Your code here
+    return x[::M]
 
-  
-  
+
+if __name__ == '__main__':
+    import numpy as np
+    print(hopSamples(np.arange(10), 2))
