@@ -33,7 +33,7 @@ def readAudio(inputFile):
         The function should return a numpy array that contains 10 samples of the audio.
     """
     _, x = wavread(inputFile)
-    return x[50001:50010]
+    return x[50000:50010]
 
 
 if __name__ == '__main__':
