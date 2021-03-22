@@ -19,10 +19,24 @@ How could we avoid damaging the signal when downsampling it?
 You can find some related information in https://en.wikipedia.org/wiki/Decimation_%28signal_processing%29.
 """
 
+
 def downsampleAudio(inputFile, M):
     """
     Inputs:
         inputFile: file name of the wav file (including path)
         	M: downsampling factor (positive integer)
     """
-    ## Your code here
+    fs, x = wavread(inputFile)
+
+    y = hopSamples(x, M)
+
+    dirname = os.path.dirname(inputFile)
+    file, ext = os.path.basename(inputFile).split('.')
+
+    outputFile = os.path.join(dirname, file + '_downsampled.' + ext)
+    wavwrite(y, int(fs/M), outputFile)
+
+
+if __name__ == '__main__':
+    audio_path = '../../sounds/vibraphone-C6.wav'
+    downsampleAudio(audio_path, 16)
