@@ -19,8 +19,8 @@ except ImportError:
 	print ("-------------------------------------------------------------------------------")
 	print ("\n")
 	sys.exit(0)
-	
-winsound_imported = False	
+
+winsound_imported = False
 if sys.platform == "win32":
 	try:
 		import winsound
@@ -46,7 +46,7 @@ def wavread(filename):
 	returns fs: sampling rate of file, x: floating point array
 	"""
 
-	if (os.path.isfile(filename) == False):                  # raise error if wrong input file
+	if os.path.isfile(filename) == False:                  # raise error if wrong input file
 		raise ValueError("Input file is wrong")
 
 	fs, x = read(filename)
